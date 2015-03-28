@@ -53,18 +53,20 @@ $fbgp: -1210px;
     height: 55px;
     background: transparent url("../img/logo-sprite-white.png") no-repeat 0 0;
     background-size: 605px 55px;
-    -webkit-animation: logo-sprite-revert 0.65s steps(11) both;
-    animation: logo-sprite-revert 0.65s steps(11) both;
+    // -webkit-animation: logo-sprite-revert 0.65s steps(11) both;
+    // animation: logo-sprite-revert 0.65s steps(11) both;
 
     &:hover{
-      -webkit-animation: logo-sprite 0.65s steps(11) both;
-      animation: logo-sprite 0.65s steps(11) both;
+      // -webkit-animation: logo-sprite 0.65s steps(11) both;
+      // animation: logo-sprite 0.65s steps(11) both;
     }
 }
 }
 
+///TEST
 
 
+///TEST
 
 .center{
   margin: 0 auto;

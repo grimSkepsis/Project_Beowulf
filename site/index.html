@@ -7,14 +7,18 @@
     <link rel="stylesheet" href="/stylesheets/main.css" media="screen" title="no title" charset="utf-8">
     <title>BEOWULF</title>
   </head>
-  <body>
+  <body ng-app="beo-app" ng-controller="beoController">
       <header class ="header">
         <div class="center">
-          <a href ="/" class = "logo"></a>
+          <a href ="/" class = "logo" ng-class="hovered" ng-mouseover="hovered='logo-hover'"></a>
         </div>
       </header>
+      <div class = "container" ng-view>
 
+      </div>
   </body>
   <script src="bower_components\angular\angular.min.js" charset="utf-8"></script>
+  <script src="bower_components\angular-route\angular-route.min.js" charset="utf-8"></script>
+  <script src="bower_components\angular-animate\angular-animate.min.js" charset="utf-8"></script>
   <script src="js/main.js" charset="utf-8"></script>
 </html>

@@ -78,28 +78,21 @@ body {
   height: 55px;
   background: transparent url("../img/logo-sprite-white.png") no-repeat 0 0;
   background-size: 605px 55px;
-  -webkit-animation: logo-sprite-revert 0.65s steps(11) both;
-  animation: logo-sprite-revert 0.65s steps(11) both;
-}
-/* line 59, ../sass/main.scss */
-.header .logo:hover {
-  -webkit-animation: logo-sprite 0.65s steps(11) both;
-  animation: logo-sprite 0.65s steps(11) both;
 }
 
-/* line 69, ../sass/main.scss */
+/* line 71, ../sass/main.scss */
 .center {
   margin: 0 auto;
   width: 970px;
 }
 @media (max-width: 970px) {
-  /* line 69, ../sass/main.scss */
+  /* line 71, ../sass/main.scss */
   .center {
     width: 680px;
   }
 }
 @media (max-width: 680px) {
-  /* line 69, ../sass/main.scss */
+  /* line 71, ../sass/main.scss */
   .center {
     width: 100%;
     padding: 0 30px;

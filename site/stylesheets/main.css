@@ -1,0 +1,107 @@
+/* line 4, ../sass/main.scss */
+*:before {
+  box-sizing: inherit;
+}
+
+/* line 7, ../sass/main.scss */
+*:after {
+  box-sizing: inherit;
+}
+
+/* line 11, ../sass/main.scss */
+body {
+  background-color: #1C1C1C;
+}
+
+@-moz-keyframes logo-sprite {
+  100% {
+    background-position: -1210px;
+  }
+}
+@-webkit-keyframes logo-sprite {
+  100% {
+    background-position: -1210px;
+  }
+}
+@keyframes logo-sprite {
+  100% {
+    background-position: -1210px;
+  }
+}
+@-moz-keyframes logo-sprite-revert {
+  100% {
+    background-position: 0px;
+  }
+}
+@-webkit-keyframes logo-sprite-revert {
+  100% {
+    background-position: 0px;
+  }
+}
+@keyframes logo-sprite-revert {
+  100% {
+    background-position: 0px;
+  }
+}
+/* line 25, ../sass/main.scss */
+.header {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: auto;
+  z-index: 4;
+  margin: 50px 0 0;
+}
+@media (max-width: 680px) {
+  /* line 25, ../sass/main.scss */
+  .header {
+    margin: 30px 0 0;
+  }
+}
+/* line 38, ../sass/main.scss */
+.header .center:before {
+  content: "";
+  display: table;
+}
+/* line 42, ../sass/main.scss */
+.header .center:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* line 49, ../sass/main.scss */
+.header .logo {
+  float: left;
+  display: inline-block;
+  width: 55px;
+  height: 55px;
+  background: transparent url("../img/logo-sprite-white.png") no-repeat 0 0;
+  background-size: 605px 55px;
+  -webkit-animation: logo-sprite-revert 0.65s steps(11) both;
+  animation: logo-sprite-revert 0.65s steps(11) both;
+}
+/* line 59, ../sass/main.scss */
+.header .logo:hover {
+  -webkit-animation: logo-sprite 0.65s steps(11) both;
+  animation: logo-sprite 0.65s steps(11) both;
+}
+
+/* line 69, ../sass/main.scss */
+.center {
+  margin: 0 auto;
+  width: 970px;
+}
+@media (max-width: 970px) {
+  /* line 69, ../sass/main.scss */
+  .center {
+    width: 680px;
+  }
+}
+@media (max-width: 680px) {
+  /* line 69, ../sass/main.scss */
+  .center {
+    width: 100%;
+    padding: 0 30px;
+  }
+}

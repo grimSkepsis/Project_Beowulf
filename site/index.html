@@ -10,7 +10,25 @@
   <body ng-app="beo-app" ng-controller="beoController">
       <header class ="header">
         <div class="center">
-          <a href ="/" class = "logo" ng-class="hovered" ng-mouseover="hovered='logo-hover'"></a>
+
+          <a href ="/" class = "logo" ng-class="{'logo-hover':hovered}"
+          ng-mouseenter="logohover()"></a>
+
+          <nav class="menu" ng-class = "{'open-menu':menuOpen}">
+            <div class="center">
+              <a href="#">Projects</a>
+              <a href="#">Studio</a>
+              <a href="#">Careers</a>
+              <a href="#">Contact</a>
+            </div>
+          </nav>
+
+
+          <a class="menu__toggle" href="#" ng-click="toggleMenu()">
+            <b class="top" ng-class = "{'top-open':menuOpen}"></b>
+            <b class="middle" ng-class = "{'middle-open':menuOpen}"></b>
+            <b class="bottom" ng-class = "{'bottom-open':menuOpen}"></b>
+          </a>
         </div>
       </header>
       <div class = "container" ng-view>

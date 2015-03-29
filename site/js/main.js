@@ -13,16 +13,19 @@ app.config(function($routeProvider){
 
 
 
-app.controller('beoController',function($scope){
+app.controller('beoController',function($scope, $timeout){
+  //logo animation
+  $scope.hovered = false;
+  $scope.logohover = function(){
+    $scope.hovered = true;
+    $timeout(function(){$scope.hovered = false;},800,true);
+  };
+  //hamburger menu stuffs
+  $scope.menuOpen = false;
+  $scope.toggleMenu = function(){
+    $scope.menuOpen = !$scope.menuOpen;
+  };
 
-    /*
-    Here you can handle controller for specific route as well.
-    */
+
+
 });
-// app.addclass('.logo', '.logo-hover', function() {
-//   return {
-//     animate : function(element, className, from, to, done) {
-//       //styles
-//     }
-//   }
-// });

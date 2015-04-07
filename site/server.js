@@ -12,6 +12,9 @@ my_http.createServer(function(request,response){
   //directory to get the full path name
   var my_path = url.parse(request.url).pathname,
   full_path = path.join(process.cwd(), my_path);
+
+    var tmp  = my_path.lastIndexOf(".");
+    var extension  = my_path.substring((tmp + 1));
   //check if the path exists
   filesys.exists(full_path, function(exists){
     //if it does not exist, throw an error
@@ -31,9 +34,19 @@ my_http.createServer(function(request,response){
         }
         //else display the file
         else{
-          response.writeHeader(200);
-          response.write(file, "binary");
-          response.end();
+          // response.writeHeader(200);
+          // response.write(file, "binary");
+          // response.end();
+          if (extension === 'html') response.writeHeader(200, {"Content-Type": 'text/html'});
+          else if (extension === 'htm') response.writeHeader(200, {"Content-Type": 'text/html'});
+          else if (extension === 'css') response.writeHeader(200, {"Content-Type": 'text/css'});
+          else if (extension === 'js') response.writeHeader(200, {"Content-Type": 'text/javascript'});
+          else if (extension === 'png') response.writeHeader(200, {"Content-Type": 'image/png'});
+          else if (extension === 'jpg') response.writeHeader(200, {"Content-Type": 'image/jpg'});
+          else if (extension === 'jpeg') response.writeHeader(200, {"Content-Type": 'image/jpeg'});
+          else if (extension === 'svg') response.writeHeader(200, {"Content-Type": 'image/svg+xml'});
+          //WHAT DOES BINARY DO!?
+          response.end(file, "binary");
         }
       });
     }

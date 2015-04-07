@@ -16,7 +16,7 @@
   height: auto;
   z-index: 4;
   margin: 50px 0 0;
-  @include breakpoint(max-width 680px) {
+  @include breakpoint(max-width $mobile-width) {
     margin: 30px 0 0;
   }
 
@@ -52,7 +52,7 @@
     display: block;
     .center{
       width: auto;
-      @include breakpoint(max-width 680px){
+      @include breakpoint(max-width $mobile-width){
         position: absolute;
         left: 0;
         top: 50%;
@@ -60,16 +60,19 @@
         height: auto;
         text-align: center;
         @include transform(translate(0,-50%));
+
+
       }
     }
     a{
-
+      font: normal 700 10px/30px "Futura",sans-serif;
       &:hover{
         @include transition-property(border-color);
         @include transition(.2s, cubic-bezier(0.25, 0.46, 0.45, 0.94));
         border-color: #fff;
       }
-      @include breakpoint(max-width 680px){
+
+      @include breakpoint(max-width $mobile-width){
           display: block;
           margin: 0;
           padding: 20px 0;
@@ -79,10 +82,13 @@
 
       }
     }
+    a.selectedItem {
+      border-color: #fff;
+    }
 
   }
 
-  @include breakpoint(max-width 680px){
+  @include breakpoint(max-width $mobile-width){
     .menu{
       float: none;
       position: fixed;
@@ -95,25 +101,50 @@
       visibility: hidden;
       opacity: 0;
       z-index: 10;
+      a.selectedItem{
+        color: $sel-menu;
+      }
       @include box-sizing(border-box);
 
+      .line{
+        opacity:0;
+        @include transform(translate(0,20px));
+      }
     }
   }
 
 
 
   .open-menu{
-    //this does not work atm
     @include transition-property(visibility);
     @include transition-property(opacity);
     @include transition-timing-function(cubic-bezier(0.455, 0.03, 0.515, 0.955));
     @include transition(.2s);
     visibility: visible;
     opacity: 1;
+    .line{
+      opacity: 1;
+      @include transform(translate(0,0));
+    }
+    .line--1{
+      @include transition(all $mi-trans-time cubic-bezier(0.455, 0.03, 0.515, 0.955));
+    }
+    .line--2{
+      @include transition(all $mi-trans-time $mi-spacing-time cubic-bezier(0.455, 0.03, 0.515, 0.955));
+    }
+
+    .line--3{
+      @include transition(all $mi-trans-time $mi-spacing-time*2 cubic-bezier(0.455, 0.03, 0.515, 0.955));
+
+    }
+    .line--4{
+      @include transition(all $mi-trans-time $mi-spacing-time*3 cubic-bezier(0.455, 0.03, 0.515, 0.955));
+    }
   }
 
   //menu__toggle
   .menu__toggle{
+    cursor: pointer;
     position: fixed;
     right: 30px;
     top: 42px;
@@ -121,7 +152,7 @@
     height: 30px;
     display: none;
     z-index: 11;
-    @include breakpoint(max-width 680px){
+    @include breakpoint(max-width $mobile-width){
       display:block;
     }
 
@@ -170,6 +201,8 @@
     //@include transition-property(color);
     //@include transition-timing-function(0.2s, cubic-bezier(0.455, 0.03, 0.515, 0.955));
   }
+
+
 }
 
 //logo animations
@@ -185,11 +218,11 @@
 
 .center{
   margin: 0 auto;
-  width: 970px;
-  @include breakpoint(max-width 970px){
-    width: 680px;
+  width: $full-width;
+  @include breakpoint(max-width $full-width){
+    width: $mobile-width;
   }
-  @include breakpoint(max-width 680px){
+  @include breakpoint(max-width $mobile-width){
     width: 100%;
     padding: 0 30px;
   }

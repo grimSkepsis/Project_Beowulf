@@ -2,11 +2,20 @@ var app=angular.module('beo-app',['ngRoute','ngAnimate']);
 app.config(function($routeProvider){
       $routeProvider
           .when('/',{
-                templateUrl: 'home.html'
+                templateUrl: 'templates/home.html'
+          })
+          .when('/contact',{
+                templateUrl: 'templates/contact.html'
+          })
+          .when('/projects',{
+                templateUrl: 'templates/projects.html'
+          })
+          .when('/studio',{
+                templateUrl: 'templates/studio.html'
+          })
+          .when('/careers',{
+                templateUrl: 'templates/careers.html'
           });
-      //     .when('/about',{
-      //           templateUrl: 'about.html'
-      //     });
 });
 
 
@@ -25,7 +34,23 @@ app.controller('beoController',function($scope, $timeout){
   $scope.toggleMenu = function(){
     $scope.menuOpen = !$scope.menuOpen;
   };
+  //menu selection stuff
+  $scope.menuSelectArray= [false, false, false, false];
+  var mSelectArray = $scope.menuSelectArray;
+  $scope.unselectMenu = function(){
+    for(var i = 0; i < mSelectArray.length; i++){
+      mSelectArray[i] = false;
+    }
+  };
+  //selects menu items, also closes menu if its open in mobile mode
+  $scope.selectMenuItem = function(num){
+    if(mSelectArray[num] === false){
+      $scope.unselectMenu();
+      mSelectArray[num] = true;
+      $scope.menuOpen = false;
+    }
 
+  };
 
 
 });

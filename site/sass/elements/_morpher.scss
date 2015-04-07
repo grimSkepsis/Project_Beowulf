@@ -1,0 +1,19 @@
+.morpher__slide{
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.morpher {
+  position: relative;
+  background: #000;
+  height: 1250px;
+  overflow: hidden;
+  height:100vh;
+  background: red;
+  @include transition(background 0.3s cubic-bezier(0.455, 0.03, 0.515, 0.955));
+}
